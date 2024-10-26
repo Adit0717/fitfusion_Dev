@@ -1,4 +1,3 @@
-// src/components/MealDropdowns.js
 import React from 'react';
 
 const MealDropdowns = () => {
