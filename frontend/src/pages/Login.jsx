@@ -1,7 +1,5 @@
 import React from 'react';
 import { Box, Button, Container, Divider, Grid, TextField, Typography, Paper } from '@mui/material';
-import { Google as GoogleIcon, Apple as AppleIcon } from '@mui/icons-material';
-import workoutImage from '../workout.png';  // Example image
 
 const Login = () => {
   return (
@@ -64,11 +62,12 @@ const Login = () => {
 
         {/* Right section - Image */}
         <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' } }}>
-          <Box component="img" src={workoutImage} alt="Workout App" sx={{ width: '100%', height: 'auto' }} />
+          <Box component="img" src="/assets/login_Side2.jpeg" alt="Workout App" sx={{ width: '100%', height: '600px', maxWidth: '500px' }} />
         </Grid>
       </Grid>
     </Container>
   );
 };
+
 
 export default Login;
