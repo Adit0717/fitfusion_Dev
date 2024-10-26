@@ -19,7 +19,7 @@ const LandingPage = () => {
             Stay Motivated
           </Typography>
           <Typography variant="body1" sx={{ mt: 2, mb: 4 }}>
-            FitFusion is your free workout tracker for iOS and Android. Build routines, track progress, and stay connected with friends.
+            FitFusion is your free web based workout tracker. Build routines, track progress, and stay connected with friends.
           </Typography>
           <Button variant="contained" color="primary" size="large" component={Link} to="/signup">
             Sign Up
