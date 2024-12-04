@@ -1,14 +1,18 @@
 package com.projectFolder.demo.Service;
 
-import com.projectFolder.demo.Mapper.ActivityMapper;
-import com.projectFolder.demo.Mapper.LoginMapper;
-import com.projectFolder.demo.dto.exercisesDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import com.projectFolder.demo.Mapper.ActivityMapper;
+import com.projectFolder.demo.dto.exercisesDto;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Repository
+@Slf4j
 public class ExercisesServiceImpl {
 
     @Autowired

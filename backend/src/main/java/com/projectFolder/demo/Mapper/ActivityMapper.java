@@ -1,12 +1,15 @@
 package com.projectFolder.demo.Mapper;
 
-import com.projectFolder.demo.dto.exercisesDto;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-
 import java.util.List;
 
-@Mapper
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+import com.projectFolder.demo.dto.exercisesDto;
+
+@Component
 public interface ActivityMapper {
 
     @Select("Select * from exercises")
@@ -16,5 +19,5 @@ public interface ActivityMapper {
     List<exercisesDto> getExercisesByCategory(String category);
 
     @Select("Select * from exercises where exercise_name=#{exercise}")
-     exercisesDto getExcerciseDetails(String exercise);
+    exercisesDto getExcerciseDetails(String exercise);
 }

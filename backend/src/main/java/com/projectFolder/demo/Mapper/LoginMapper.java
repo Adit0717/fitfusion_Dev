@@ -1,15 +1,16 @@
 package com.projectFolder.demo.Mapper;
 
 
-import com.projectFolder.demo.dto.LoginDto;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-
 import java.util.List;
 
-@Mapper
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Component;
+
+import com.projectFolder.demo.dto.LoginDto;
+
+@Component
 public interface LoginMapper {
 
     @Select("Select * from users")

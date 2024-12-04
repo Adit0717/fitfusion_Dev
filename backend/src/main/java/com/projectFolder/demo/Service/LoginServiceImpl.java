@@ -1,18 +1,21 @@
 package com.projectFolder.demo.Service;
 
-import com.projectFolder.demo.Mapper.LoginMapper;
-import com.projectFolder.demo.dto.LoginDto;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import com.projectFolder.demo.Mapper.LoginMapper;
+import com.projectFolder.demo.dto.LoginDto;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Repository
 @Slf4j
 public class LoginServiceImpl {
 
-    @Autowired
+    @Autowired(required=true)
     LoginMapper loginMapper;
 
     public List<LoginDto> getUserList() {

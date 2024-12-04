@@ -1,21 +1,29 @@
 package com.projectFolder.demo.Service;
 
-import com.projectFolder.demo.Mapper.MealMapper;
-import com.projectFolder.demo.dto.mealPlanDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import com.projectFolder.demo.Mapper.MealMapper;
+import com.projectFolder.demo.dto.mealPlanDto;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Repository
+@Slf4j
 public class MealPlanServiceImpl {
 
 
-    @Autowired
+    @Autowired(required=true)
     MealMapper mealMapper;
 
+    
     public List<mealPlanDto> getMealPlanList(){
+        System.out.println("Endpoint hitting coming to service class");
         List<mealPlanDto> mealDetails=mealMapper.getMealPlan();
+        System.out.println(mealDetails);
         return mealDetails;
     }
 

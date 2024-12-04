@@ -1,10 +1,10 @@
 package com.projectFolder.demo.dto;
 
 
-import lombok.Data;
-
-import javax.validation.constraints.NotNull;
 import java.util.Date;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 @Data
 public class userActivityLevelsDto {

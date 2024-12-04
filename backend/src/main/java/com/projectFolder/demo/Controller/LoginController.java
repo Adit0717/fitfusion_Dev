@@ -1,25 +1,28 @@
 package com.projectFolder.demo.Controller;
 
-import com.projectFolder.demo.Mapper.LoginMapper;
-import com.projectFolder.demo.Service.LoginServiceImpl;
-import com.projectFolder.demo.dto.LoginDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.projectFolder.demo.Service.LoginServiceImpl;
+import com.projectFolder.demo.dto.LoginDto;
 
 
 @RestController
 @RequestMapping("/api")
 public class LoginController {
 
-    @Autowired
-    LoginMapper mapper;
-    @Autowired
+   
+    @Autowired(required=true)
     private LoginServiceImpl loginServiceImpl;
 
 
@@ -32,7 +35,7 @@ public class LoginController {
     }
 
     @PostMapping("/addUsers")
-    public ResponseEntity<?> addUsers(@Valid @RequestBody LoginDto loginDto) {
+    public ResponseEntity<?> addUsers( @RequestBody LoginDto loginDto) {
         Map<String, String> response = new HashMap<>();
         String details=loginServiceImpl.addUsers(loginDto);
         if(details==null) {

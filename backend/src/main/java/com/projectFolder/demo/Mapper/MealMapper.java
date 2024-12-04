@@ -1,14 +1,19 @@
 package com.projectFolder.demo.Mapper;
 
-import com.projectFolder.demo.dto.mealPlanDto;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-
 import java.util.List;
 
-@Mapper
-public interface MealMapper {
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
+import com.projectFolder.demo.dto.mealPlanDto;
+
+import lombok.extern.apachecommons.CommonsLog;
+
+@Component
+public interface MealMapper {
+    
+    
     @Select("select * from meal_plans")
     List<mealPlanDto> getMealPlan();
 

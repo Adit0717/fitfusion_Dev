@@ -1,14 +1,13 @@
 package com.projectFolder.demo.dto;
 
-import lombok.Data;
-
-import javax.validation.constraints.NotNull;
 import java.util.Date;
+
+import lombok.Data;
 
 @Data
 public class dailyStepsDto {
 
-    @NotNull
+   
     public int id;
     public int userId;
     public Date stepDate;
