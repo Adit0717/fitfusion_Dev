@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Articles from './pages/Articles';
 import AboutUs from './components/About';
+import Trainers from './pages/Trainers';
+import DetailedArticle from './pages/DetailedArticle';
 
 const App = () => {
   useEffect(() => {
@@ -26,6 +28,9 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path='/articles' element={<Articles/>} />
           <Route path='/about-us' element={<AboutUs/>} />
+          <Route path='/trainers' element={<Trainers/>} />
+          <Route path="/articles/:id" element={<DetailedArticle />} />
+
         </Routes>
       </div>
     </Router>
