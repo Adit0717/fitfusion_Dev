@@ -1,43 +1,46 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Articles from './pages/Articles';
+import DashBoardLanding from './pages/DashBoardLanding';
 import AboutUs from './components/About';
-import DashBoardLanding  from './pages/DashBoardLanding';
+import Exercises from './pages/Exercises';
+import Trainers from './pages/Trainers';
+import DetailedArticle from './pages/DetailedArticle';
 import ProMembershipBenefits from './pages/ProMembershipBenefits';
 import FreeRecipeCollection from './pages/FreeRecipeCollection';
 import MealPrepIdeas from './pages/MealPrepIdeas';
 import MealPlanningTips from './pages/MealPlanningTips';
-import ExercisePlans from './pages/Exercises';
 
 const App = () => {
   useEffect(() => {
     if (window.location.pathname === '/' || window.location.pathname === '') {
-        window.location.replace('/home');
+      window.location.replace('/DashBoardLanding');
     }
-}, []);
+  }, []);
+
   return (
     <Router>
       <div className="App">
-        {/* Navbar */}
-        <Navbar />
+        {/* Conditionally render Navbar */}
+        {window.location.pathname !== '/DashBoardLanding' && <Navbar />}
 
         {/* Page Content */}
         <Routes>
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/DashBoardLanding" element={<DashBoardLanding />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path='/articles' element={<Articles/>} />
-          <Route path='/about-us' element={<AboutUs/>} />
-          <Route path='/ExercisePlans' element={<Exercises/>} />
-          <Route path='/MealPlanningTips' element={<MealPlanningTips/>} />
-          <Route path='/MealPrepIdeas' element={<MealPrepIdeas/>} />
-          <Route path='/ProMembershipBenefits' element={<ProMembershipBenefits/>} />
-          <Route path='/FreeReceipeCollection' element={<FreeRecipeCollection/>} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/trainers" element={<Trainers />} />
+          <Route path="/Exercises" element={<Exercises />} />
+          <Route path="/MealPlanningTips" element={<MealPlanningTips />} />
+          <Route path="/FreeRecipeCollection" element={<FreeRecipeCollection />} />
+          <Route path="/MealPrepIdeas" element={<MealPrepIdeas />} />
+          <Route path="/articles" element={<DetailedArticle />} />
+          <Route path="/DashBoardLanding" element={<DashBoardLanding />} />
         </Routes>
       </div>
     </Router>

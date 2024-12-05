@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Button, Container, Grid, TextField, Typography, Paper } from '@mui/material';
-import workoutImage from '../workout.png'; // Example image
-import axios from 'axios'; // Import axios
-import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
+import { Box, Button, Container, Grid, TextField, Typography, Divider } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -10,11 +9,13 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
-  // Function to handle sign-up button click
-  const handleSignup = async (event) => {
-    event.preventDefault();
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    // Clear previous errors
+    setError('');
 
     try {
       const response = await axios.post('http://localhost:8080/api/addUsers', {
@@ -24,35 +25,62 @@ const Signup = () => {
         password,
       });
 
-      console.log(response.data);
-      // Check if response matches the expected success message
-      if (response.data['User added '] === 'Successfully') {
-        // Redirect to dashboard upon successful signup
-        navigate('/DashBoardLanding');
-      } else {
-        setError(response);
+      console.log(response);
+      // Assuming the response contains a success message or token
+      if (response.data['User added '] === 'Successfully')  {
+        navigate('/login'); // Redirect to login page after successful signup
       }
-    } catch (error) {
-      // Display error to the user
-      console.error(error);
-      if (error.response && error.response.data && error.response.data.message) {
-        setError(error.response.data.message);
-      } else {
-        setError('An error occurred. Please try again.');
-      }
+    } catch (err) {
+      setError('Failed to create an account. Please try again.');
     }
   };
 
   return (
-    <Container maxWidth="lg">
-      <Grid container spacing={4} alignItems="center" justifyContent="center" sx={{ height: '100vh' }}>
-        {/* Left section - Signup Form */}
-        <Grid item xs={12} md={6}>
-          <Typography variant="h4" align="center" gutterBottom>
-              Sign Up
+    <Container
+      maxWidth="false"
+      disableGutters
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #1c1e4f, #26286f)',
+      }}
+    >
+      <Grid container sx={{ height: '100%', width: '100%' }}>
+        {/* Left Section - Signup Form */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 4,
+            backgroundColor: '#ffffff',
+          }}
+        >
+          <Box sx={{ maxWidth: 400, width: '100%' }}>
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 700,
+                mb: 2,
+                textAlign: 'center',
+                color: '#1c1e4f',
+              }}
+            >
+              Create Your Account
             </Typography>
+            <Typography
+              variant="body2"
+              sx={{ textAlign: 'center', mb: 4, color: '#6c757d' }}
+            >
+              Sign up to start your fitness journey with FitFusion.
+            </Typography>
+            <Divider sx={{ mb: 4 }} />
 
-            {/* Sign Up Form */}
             <Box component="form" noValidate onSubmit={handleSignup}>
               <TextField
                 fullWidth
@@ -61,6 +89,11 @@ const Signup = () => {
                 required
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: 2,
+                  },
+                }}
               />
               <TextField
                 fullWidth
@@ -69,6 +102,11 @@ const Signup = () => {
                 required
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: 2,
+                  },
+                }}
               />
               <TextField
                 fullWidth
@@ -77,6 +115,11 @@ const Signup = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: 2,
+                  },
+                }}
               />
               <TextField
                 fullWidth
@@ -86,13 +129,39 @@ const Signup = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: 2,
+                  },
+                }}
               />
-              {error && <Typography color="error">{error}</Typography>}
+              {error && (
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: 'red',
+                    textAlign: 'center',
+                    mt: 1,
+                  }}
+                >
+                  {error}
+                </Typography>
+              )}
               <Button
                 fullWidth
                 variant="contained"
-                color="primary"
-                sx={{ mt: 3, py: 1.5, textTransform: 'none' }}
+                sx={{
+                  mt: 4,
+                  py: 1.5,
+                  fontWeight: 700,
+                  fontSize: '1rem',
+                  backgroundColor: '#4e5ed2',
+                  '&:hover': {
+                    backgroundColor: '#404cb0',
+                  },
+                  textTransform: 'none',
+                  borderRadius: 2,
+                }}
                 type="submit"
               >
                 Sign Up
@@ -135,6 +204,7 @@ const Signup = () => {
               </Typography>
               .
             </Typography>
+          </Box>
         </Grid>
 
         {/* Right Section - Background Image */}

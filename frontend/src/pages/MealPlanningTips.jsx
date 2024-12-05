@@ -109,7 +109,7 @@ const MealPlanningTips = () => {
 
           {section.guidelines.map((item, i) => (
             <Box key={i} mb={1}>
-              <Typography variant="subtitle1" sx={{ fontWeight: '500', fontSize: '1.1rem', color: '#333', fontWeight: 'bold' }}>
+              <Typography variant="subtitle1" sx={{ fontWeight: 'bold', fontSize: '1.1rem', color: '#333' }}>
                 {item.subtitle}
               </Typography>
               <Typography variant="body2" sx={{ fontSize: '0.95rem', color: '#666' }}>

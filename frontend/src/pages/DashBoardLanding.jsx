@@ -20,8 +20,8 @@ const  DashBoardLanding = () => {
           <Button color="inherit" component={Link} to="/MealPrepIdeas" sx={{ fontWeight: 500, textTransform: 'none', '&:hover': {backgroundColor: '#1976d2', color: '#fff',},}} onClick={() => handleLinkClick('/MealPrepIdeas')}>
           MealPrepIdeas
           </Button>
-          <Button color="inherit" component={Link} to="/ProMembershipBenefits" sx={{ fontWeight: 500, textTransform: 'none', '&:hover': {backgroundColor: '#1976d2', color: '#fff',},}} onClick={() => handleLinkClick('/ProMembershipBenefits')}>
-          ProMembershipBenefits
+          <Button color="inherit" component={Link} to="/Exercises" sx={{ fontWeight: 500, textTransform: 'none', '&:hover': {backgroundColor: '#1976d2', color: '#fff',},}} onClick={() => handleLinkClick('/Exercises')}>
+          Exercises
           </Button>
           <Button color="inherit" component={Link} to="/FreeReceipeCollection" sx={{ fontWeight: 500, textTransform: 'none', '&:hover': {backgroundColor: '#1976d2', color: '#fff',},}} onClick={() => handleLinkClick('/FreeReceipeCollection')}>
           FreeReceipeCollection
