@@ -26,11 +26,12 @@ const App = () => {
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path='/articles' element={<Articles/>} />
-          <Route path='/about-us' element={<AboutUs/>} />
-          <Route path='/trainers' element={<Trainers/>} />
-          <Route path="/articles/:id" element={<DetailedArticle />} />
 
+          <Route path="/about-us" element={<AboutUs/>} />
+          <Route path="/trainers" element={<Trainers/>} />
+          
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/article/:id" element={<DetailedArticle />} /> {/* Route with article ID */}
         </Routes>
       </div>
     </Router>
