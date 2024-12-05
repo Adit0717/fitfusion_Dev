@@ -48,8 +48,7 @@ const Signup = () => {
       <Grid container spacing={4} alignItems="center" justifyContent="center" sx={{ height: '100vh' }}>
         {/* Left section - Signup Form */}
         <Grid item xs={12} md={6}>
-          <Paper elevation={3} sx={{ padding: '2rem' }}>
-            <Typography variant="h4" align="center" gutterBottom>
+          <Typography variant="h4" align="center" gutterBottom>
               Sign Up
             </Typography>
 
@@ -99,12 +98,60 @@ const Signup = () => {
                 Sign Up
               </Button>
             </Box>
-          </Paper>
+
+            <Typography
+              variant="body2"
+              sx={{ mt: 4, textAlign: 'center', color: '#6c757d' }}
+            >
+              Already have an account?{' '}
+              <Typography
+                component={Link}
+                to="/login"
+                sx={{
+                  color: '#4e5ed2',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                }}
+              >
+                Log in
+              </Typography>
+            </Typography>
+
+            <Typography
+              variant="body2"
+              sx={{ mt: 2, textAlign: 'center', color: '#6c757d', fontSize: '0.8rem' }}
+            >
+              By signing up, you agree to our{' '}
+              <Typography
+                component="span"
+                sx={{
+                  textDecoration: 'underline',
+                  cursor: 'pointer',
+                  color: '#4e5ed2',
+                }}
+              >
+                Terms & Privacy Policy
+              </Typography>
+              .
+            </Typography>
         </Grid>
 
-        {/* Right section - Image */}
-        <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' } }}>
-          <Box component="img" src={workoutImage} alt="Workout App" sx={{ width: '100%', height: 'auto' }} />
+        {/* Right Section - Background Image */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundImage: `url('https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          {/* This section serves as a decorative image background */}
         </Grid>
       </Grid>
     </Container>

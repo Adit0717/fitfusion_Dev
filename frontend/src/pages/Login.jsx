@@ -77,11 +77,9 @@ const Login = () => {
                 sx={{ mt: 3, py: 1.5, textTransform: 'none' }}
                 type="submit"
               >
-                Login
+                Sign in
               </Button>
             </Box>
-          </Paper>
-        </Grid>
 
         {/* Right section - Image */}
         <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' } }}>
