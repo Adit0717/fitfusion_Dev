@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Container, Grid, TextField, Typography, Divider } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { response } from 'express';
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -25,13 +26,15 @@ const Signup = () => {
         password,
       });
 
+      
+
       console.log(response);
       // Assuming the response contains a success message or token
       if (response.data['User added '] === 'Successfully')  {
         navigate('/login'); // Redirect to login page after successful signup
       }
     } catch (err) {
-      setError('Failed to create an account. Please try again.');
+      setError(response);
     }
   };
 

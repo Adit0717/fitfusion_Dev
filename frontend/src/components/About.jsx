@@ -187,7 +187,7 @@ const AboutUs = () => {
           variant="outlined"
           color="inherit"
           size="large"
-          href="https://github.com/your-repository-url"
+          href="https://github.com/Adit0717/fitfusion_Dev"
           target="_blank"
           rel="noopener noreferrer"
           sx={{

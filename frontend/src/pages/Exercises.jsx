@@ -12,7 +12,7 @@ const ExerciseList = () => {
     const fetchExercises = async () => {
       try {
         const response = await axios.get('http://localhost:8080/exercisedetails'); // Replace with your backend endpoint
-        setExercises(response.data['Exercises']); // Access the "Exercises" array from the response
+        setExercises(response.data['Exercises:']); // Access the array inside the "Exercises:" key
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch exercise data. Please try again later.');
