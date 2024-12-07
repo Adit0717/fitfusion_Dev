@@ -1,8 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Container, Grid, TextField, Typography, Paper, Divider } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [response, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [emailError, setEmailError] = useState(''); // State for email validation
+  const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+    return emailRegex.test(email);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    // Clear previous errors and messages
+    setError('');
+    setEmailError('');
+    setMessage('');
+
+    // Validate email format
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address.');
+      return; // Prevent form submission
+    }
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/login', {
+        email,
+        password,
+      });
+
+      console.log(response.data);
+
+      if (response.data === 'Login Successful') {
+        localStorage.setItem('authToken', response.data.token);
+        setMessage('Login Successful! Redirecting...');
+        setTimeout(() => navigate('/DashBoardLanding'), 2000);
+      } else {
+        setMessage(response.data);
+      }
+    } catch (err) {
+      setError('Invalid email or password');
+      setMessage('');
+    }
+  };
+
   return (
     <Container
       maxWidth="false"
@@ -96,12 +144,16 @@ const Login = () => {
             </Typography>
             <Divider sx={{ mb: 4 }} />
 
-            <Box component="form" noValidate>
+            <Box component="form" noValidate onSubmit={handleLogin}>
               <TextField
                 fullWidth
                 label="Email"
                 margin="normal"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                error={!!emailError} // Highlight field in case of error
+                helperText={emailError} // Show error message below the field
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,
@@ -114,24 +166,26 @@ const Login = () => {
                 type="password"
                 margin="normal"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,
                   },
                 }}
               />
-              {/* <Typography
-                variant="body2"
-                sx={{
-                  textAlign: 'right',
-                  mt: 1,
-                  color: '#6c757d',
-                  textDecoration: 'underline',
-                  cursor: 'pointer',
-                }}
-              >
-                Forgot Password?
-              </Typography> */}
+              {error && (
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: 'red',
+                    textAlign: 'center',
+                    mt: 1,
+                  }}
+                >
+                  {error}
+                </Typography>
+              )}
               <Button
                 fullWidth
                 variant="contained"
@@ -147,6 +201,7 @@ const Login = () => {
                   textTransform: 'none',
                   borderRadius: 2,
                 }}
+                type="submit"
               >
                 Sign in
               </Button>
@@ -158,17 +213,17 @@ const Login = () => {
             >
               Don’t have an account?{' '}
               <Typography
-    component={Link}
-    to="/signup"
-    sx={{
-      color: '#4e5ed2',
-      fontWeight: 700,
-      cursor: 'pointer',
-      textDecoration: 'underline',
-    }}
-  >
-    Sign up
-  </Typography>
+                component={Link}
+                to="/signup"
+                sx={{
+                  color: '#4e5ed2',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                }}
+              >
+                Sign up
+              </Typography>
             </Typography>
 
             <Typography
