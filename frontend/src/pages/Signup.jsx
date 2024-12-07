@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Container, Grid, TextField, Typography, Divider } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Signup = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    // Clear previous errors
+    setError('');
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/addUsers', {
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+
+      console.log(response);
+      // Assuming the response contains a success message or token
+      if (response.data['User added '] === 'Successfully')  {
+        navigate('/login'); // Redirect to login page after successful signup
+      }
+    } catch (err) {
+      setError('Failed to create an account. Please try again.');
+    }
+  };
+
   return (
     <Container
       maxWidth="false"
@@ -49,12 +81,14 @@ const Signup = () => {
             </Typography>
             <Divider sx={{ mb: 4 }} />
 
-            <Box component="form" noValidate>
+            <Box component="form" noValidate onSubmit={handleSignup}>
               <TextField
                 fullWidth
                 label="First Name"
                 margin="normal"
                 required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,
@@ -66,6 +100,8 @@ const Signup = () => {
                 label="Last Name"
                 margin="normal"
                 required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,
@@ -77,6 +113,8 @@ const Signup = () => {
                 label="Email"
                 margin="normal"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,
@@ -89,12 +127,26 @@ const Signup = () => {
                 type="password"
                 margin="normal"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,
                   },
                 }}
               />
+              {error && (
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: 'red',
+                    textAlign: 'center',
+                    mt: 1,
+                  }}
+                >
+                  {error}
+                </Typography>
+              )}
               <Button
                 fullWidth
                 variant="contained"
@@ -110,6 +162,7 @@ const Signup = () => {
                   textTransform: 'none',
                   borderRadius: 2,
                 }}
+                type="submit"
               >
                 Sign Up
               </Button>
