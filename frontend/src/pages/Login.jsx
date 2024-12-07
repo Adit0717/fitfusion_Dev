@@ -6,14 +6,29 @@ import axios from 'axios';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [response, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [emailError, setEmailError] = useState(''); // State for email validation
   const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+    return emailRegex.test(email);
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Clear previous errors
+    // Clear previous errors and messages
     setError('');
+    setEmailError('');
+    setMessage('');
+
+    // Validate email format
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address.');
+      return; // Prevent form submission
+    }
 
     try {
       const response = await axios.post('http://localhost:8080/api/login', {
@@ -21,13 +36,18 @@ const Login = () => {
         password,
       });
 
-      // Assuming the response contains a token or user data
-      if (response.data ==='Login Successful') {
+      console.log(response.data);
+
+      if (response.data === 'Login Successful') {
         localStorage.setItem('authToken', response.data.token);
-        navigate('/DashBoardLanding'); // Redirect to dashboard or any other page
+        setMessage('Login Successful! Redirecting...');
+        setTimeout(() => navigate('/DashBoardLanding'), 2000);
+      } else {
+        setMessage(response.data);
       }
     } catch (err) {
       setError('Invalid email or password');
+      setMessage('');
     }
   };
 
@@ -132,6 +152,8 @@ const Login = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                error={!!emailError} // Highlight field in case of error
+                helperText={emailError} // Show error message below the field
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,

@@ -23,7 +23,7 @@ const  DashBoardLanding = () => {
           <Button color="inherit" component={Link} to="/Exercises" sx={{ fontWeight: 500, textTransform: 'none', '&:hover': {backgroundColor: '#1976d2', color: '#fff',},}} onClick={() => handleLinkClick('/Exercises')}>
           Exercises
           </Button>
-          <Button color="inherit" component={Link} to="/FreeRecipeCollection" sx={{ fontWeight: 500, textTransform: 'none', '&:hover': {backgroundColor: '#1976d2', color: '#fff',},}} onClick={() => handleLinkClick('/FreeRecipeCollection')}>
+          <Button color="inherit" component={Link} to="/FreeReceipeCollection" sx={{ fontWeight: 500, textTransform: 'none', '&:hover': {backgroundColor: '#1976d2', color: '#fff',},}} onClick={() => handleLinkClick('/FreeReceipeCollection')}>
           FreeReceipeCollection
           </Button>
         </Box>
