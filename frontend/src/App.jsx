@@ -18,6 +18,7 @@ import SearchMealPrepIdeas from './pages/SearchMealPrepIdeas';
 import SearchMealPrepByCalorie from './pages/SearchMealByCalories';
 import SearchByCategory from './pages/SearchBycategory';
 import SearchByExercise from './pages/SearchByExercise';
+import TrainerList from './pages/TrainersList';
 
 const App = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/article/:id" element={<DetailedArticle />} />
+          <Route path="/TrainerList" element={<TrainerList />} />
           <Route path="/MealPlanningTips" element={<MealPlanningTips />} />
           <Route path="/FreeRecipeCollection" element={<FreeRecipeCollection />} />
           <Route path="/MealPrepIdeas" element={<MealPrepIdeas />} />
