@@ -3,7 +3,7 @@ import { Box, Typography, Grid, Avatar, Button, Paper } from '@mui/material';
 
 const AboutUs = () => {
   return (
-    <Box sx={{ padding: '2rem', backgroundColor: '#f9f9f9' }}>
+    <Box sx={{ padding: '2rem', backgroundColor: '#ffffff' }}>
       {/* Title Section */}
       <Box sx={{ textAlign: 'center', mb: 6 }}>
         <Typography
@@ -12,10 +12,8 @@ const AboutUs = () => {
           sx={{
             fontWeight: 700,
             mb: 2,
+            textDecoration: 'underline',
             color: 'primary.main',
-            background: 'linear-gradient(to right, #1c92d2, #f2fcfe)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
           }}
         >
           About Our Project
@@ -39,8 +37,8 @@ const AboutUs = () => {
         </Typography>
         <Typography variant="body1" align="center" sx={{ maxWidth: '800px', margin: '0 auto', mb: 4, color: 'text.secondary' }}>
           FitFusion is a web-based fitness tracking application designed to help users log workouts, build routines, track
-          progress, and connect with a community of like-minded fitness enthusiasts. Built using React, Material-UI, and
-          other modern web technologies, FitFusion emphasizes simplicity, accessibility, and user engagement.
+          progress, and connect with a community of like-minded fitness enthusiasts. Built using React, Material-UI,
+          Spring Boot and other modern web technologies, FitFusion emphasizes simplicity, accessibility, and user engagement.
         </Typography>
         <Grid container spacing={4}>
           {[
@@ -119,28 +117,28 @@ const AboutUs = () => {
         <Grid container spacing={4} justifyContent="center">
           {[
             {
-              name: 'Srivastav',
-              role: 'Team Lead & Frontend Developer',
-              avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-              bio: 'Coordinated the team and implemented the UI using React and Material-UI.',
-            },
-            {
-              name: 'Member 2',
+              name: 'Harsha',
               role: 'Backend Developer',
-              avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-              bio: 'Designed and implemented server-side logic and database integration.',
+              avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
+              bio: 'Designed and implemented server-side logic using Spring Boot and developed database schema.',
             },
             {
-              name: 'Member 3',
-              role: 'UI/UX Designer',
-              avatar: 'https://randomuser.me/api/portraits/men/54.jpg',
-              bio: 'Ensured the user interface is intuitive and visually appealing.',
+              name: 'Aditya',
+              role: 'Frontend Developer',
+              avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
+              bio: 'Coordinated the team, assisted in developing frontend components and deployed the application in cloud.',              
             },
             {
-              name: 'Member 4',
-              role: 'Tester & Documentation Specialist',
-              avatar: 'https://randomuser.me/api/portraits/men/64.jpg',
-              bio: 'Conducted testing and compiled comprehensive project documentation.',
+              name: 'Srivastav',
+              role: 'Frontend Developer',
+              avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
+              bio: 'Implemented frontend components using React and material UI and made sure that UI is visually appealing.',
+            },
+            {
+              name: 'Aalekh',
+              role: 'Team Lead',
+              avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
+              bio: 'Assisted in backend development and lead the team from development to deployment.',
             },
           ].map((teamMember, index) => (
             <Grid item xs={12} md={3} key={index}>
@@ -187,7 +185,7 @@ const AboutUs = () => {
           variant="outlined"
           color="inherit"
           size="large"
-          href="https://github.com/your-repository-url"
+          href="https://github.com/Adit0717/fitfusion_Dev"
           target="_blank"
           rel="noopener noreferrer"
           sx={{
