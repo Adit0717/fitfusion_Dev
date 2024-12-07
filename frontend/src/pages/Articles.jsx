@@ -13,7 +13,7 @@ const Articles = () => {
     <Box sx={{ padding: '3rem', backgroundColor: '#f9f9f9' }}>
       {/* Title Section */}
       <Box sx={{ marginBottom: '2rem' }}>
-        <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', marginBottom: '1rem' }}>
+        <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', marginBottom: '1rem', color: 'primary.main'}}>
           Your Personal Library
         </Typography>
         <Typography variant="body1" sx={{ marginBottom: '2rem' }}>

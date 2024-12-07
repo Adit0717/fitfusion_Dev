@@ -8,6 +8,7 @@ import Articles from './pages/Articles';
 import AboutUs from './components/About';
 import Trainers from './pages/Trainers';
 import DetailedArticle from './pages/DetailedArticle';
+import Contact from './components/Contact';
 
 const App = () => {
   useEffect(() => {
@@ -29,9 +30,11 @@ const App = () => {
 
           <Route path="/about-us" element={<AboutUs/>} />
           <Route path="/trainers" element={<Trainers/>} />
+
+          <Route path="/contact" element={<Contact/>} />
           
           <Route path="/articles" element={<Articles />} />
-          <Route path="/article/:id" element={<DetailedArticle />} /> {/* Route with article ID */}
+          <Route path="/article/:id" element={<DetailedArticle />} />
         </Routes>
       </div>
     </Router>

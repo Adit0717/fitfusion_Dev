@@ -18,7 +18,7 @@ const trainersData = [
     specialization: 'Strength Training',
     description:
       'John is a certified strength trainer with over 10 years of experience helping athletes build muscle and improve performance.',
-    image: 'https://randomuser.me/api/portraits/men/32.jpg',
+    image: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
     details: 'John specializes in strength training and muscle building. He has worked with top athletes to enhance their endurance and performance. His personal training sessions are tailored to meet individual needs.',
   },
   {
@@ -27,7 +27,7 @@ const trainersData = [
     specialization: 'Yoga & Flexibility',
     description:
       'Sophia is a yoga expert who blends traditional and modern techniques to improve flexibility and mental wellness.',
-    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    image: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
     details: 'Sophia incorporates mindfulness and flexibility techniques to help her clients achieve both physical and mental well-being. She has trained under world-renowned yoga instructors.',
   },
   {
@@ -36,7 +36,7 @@ const trainersData = [
     specialization: 'Cardio & Weight Loss',
     description:
       'Michael focuses on high-intensity cardio workouts to help clients achieve their weight loss and fitness goals.',
-    image: 'https://randomuser.me/api/portraits/men/54.jpg',
+    image: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
     details: 'Michael’s sessions are energetic and result-oriented. He combines cardio, circuit training, and dietary advice to help clients shed weight effectively.',
   },
 ];
