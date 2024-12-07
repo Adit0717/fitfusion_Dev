@@ -13,6 +13,10 @@ import DetailedArticle from './pages/DetailedArticle';
 import FreeRecipeCollection from './pages/FreeRecipeCollection';
 import MealPrepIdeas from './pages/MealPrepIdeas';
 import MealPlanningTips from './pages/MealPlanningTips';
+import SearchMealPrepIdeas from './pages/SearchMealPrepIdeas';
+import SearchMealPrepByCalorie from './pages/SearchMealByCalories';
+import SearchByCategory from './pages/SearchBycategory';
+import SearchByExercise from './pages/SearchByExercise';
 
 const App = () => {
   useEffect(() => {
@@ -35,9 +39,13 @@ const App = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/Exercises" element={<Exercises />} />
+          <Route path="/SearchByCategory" element={<SearchByCategory />} />
+          <Route path="/SearchByExercise" element={<SearchByExercise />} />
           <Route path="/MealPlanningTips" element={<MealPlanningTips />} />
           <Route path="/FreeRecipeCollection" element={<FreeRecipeCollection />} />
           <Route path="/MealPrepIdeas" element={<MealPrepIdeas />} />
+          <Route path="/SearchMealPrepIdeas" element={<SearchMealPrepIdeas />} />
+          <Route path="/SearchMealPrepByCalorie" element={< SearchMealPrepByCalorie/>} />
           <Route path="/articles" element={<DetailedArticle />} />
           <Route path="/DashBoardLanding" element={<DashBoardLanding />} />
         </Routes>

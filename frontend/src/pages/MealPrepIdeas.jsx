@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Divider, CircularProgress } from '@mui/material';
+import { Typography, Box, Divider, CircularProgress, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const MealPrepIdeas = () => {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize navigation hook
 
   // Fetch data from the backend
   useEffect(() => {
@@ -13,7 +15,6 @@ const MealPrepIdeas = () => {
       try {
         const response = await axios.get('http://localhost:8080/mealPlans'); // Replace with your backend endpoint
         setMeals(response.data['Meal Details']); // Access the "Meal Details" array from the response
-        console.log(response)
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch meal data. Please try again later.');
@@ -34,7 +35,7 @@ const MealPrepIdeas = () => {
 
   if (error) {
     return (
-      <Box sx={{ padding: '25px', fontFamily: 'Arial, sans-serif' }}>
+      <Box sx={{ padding: '25px', fontFamily: 'Arial, sans-serif', textAlign: 'center' }}>
         <Typography variant="h6" color="error">
           {error}
         </Typography>
@@ -44,18 +45,44 @@ const MealPrepIdeas = () => {
 
   return (
     <Box sx={{ padding: '25px', fontFamily: 'Arial, sans-serif' }}>
-      <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', fontSize: '1.8rem' }}>
-        Meal Prep Ideas
-      </Typography>
+      {/* Navigation bar */}
+      <Box sx={{ mb: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+        <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', fontSize: '1.8rem' }}>
+          Meal Prep Ideas
+        </Typography>
 
+        <Box sx={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate('/SearchMealPrepIdeas')}
+            sx={{ padding: '8px 16px', fontSize: '0.9rem' }}
+          >
+            Search Meals By Type
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate('/SearchMealPrepByCalorie')}
+            sx={{ padding: '8px 16px', fontSize: '0.9rem' }}
+          >
+            Search Meals By Calories
+          </Button>
+        </Box>
+      </Box>
+
+      {/* Meal list */}
       {meals.map((meal) => (
         <Box
+          key={meal.mealName} // Ensure a unique key for each item
           mb={4}
           sx={{
             backgroundColor: '#f5f5f5',
             borderRadius: '8px',
             padding: '24px',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+            transition: 'transform 0.2s',
+            '&:hover': { transform: 'scale(1.02)' }, // Add hover effect
           }}
         >
           <Typography variant="h5" sx={{ fontWeight: '600', fontSize: '1.5rem', color: '#333' }}>
