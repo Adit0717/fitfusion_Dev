@@ -10,6 +10,7 @@ import AboutUs from './components/About';
 import Exercises from './pages/Exercises';
 import Trainers from './pages/Trainers';
 import DetailedArticle from './pages/DetailedArticle';
+import Contact from './components/Contact';
 import FreeRecipeCollection from './pages/FreeRecipeCollection';
 import MealPrepIdeas from './pages/MealPrepIdeas';
 import MealPlanningTips from './pages/MealPlanningTips';
@@ -35,6 +36,9 @@ const App = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/Exercises" element={<Exercises />} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/article/:id" element={<DetailedArticle />} />
           <Route path="/MealPlanningTips" element={<MealPlanningTips />} />
           <Route path="/FreeRecipeCollection" element={<FreeRecipeCollection />} />
           <Route path="/MealPrepIdeas" element={<MealPrepIdeas />} />
