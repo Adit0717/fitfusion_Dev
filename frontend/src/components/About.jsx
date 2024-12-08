@@ -138,7 +138,7 @@ const AboutUs = () => {
               name: 'Aalekh',
               role: 'Team Lead',
               avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
-              bio: 'Assisted in backend development and lead the team from development to deployment.',
+              bio: 'Assisted in backend development,designed and developed meal module, dashboard and lead the team from development to deployment.',
             },
           ].map((teamMember, index) => (
             <Grid item xs={12} md={3} key={index}>
