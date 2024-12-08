@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Divider, CircularProgress, TextField, Button } from '@mui/material';
 import axios from 'axios';
+import axiosInstance from '../../axiosConfig';
 
 const CategoryExercises = () => {
   const [exercises, setExercises] = useState([]); // Initialize as an empty array
@@ -14,10 +15,10 @@ const CategoryExercises = () => {
 
     try {
       const url = category
-        ? `http://localhost:8080/exercise?exercise=${category}`
-        : 'http://localhost:8080/categoryExercises'; // Adjust URL based on category
+        ? `/exercise?exercise=${category}`
+        : '/categoryExercises'; // Adjust URL based on category
 
-      const response = await axios.get(url);
+      const response = await axiosInstance.get(url);
 
       // Update how exercises are set based on the structure of the response
       const exercisesData = response.data['Exercises:']; // Get exercises data
