@@ -42,6 +42,7 @@ const Navbar = () => {
            { label: 'Exercises', to: '/Exercises' },
            { label: 'FreeRecipeCollection', to: '/FreeRecipeCollection' },
            { label: 'MealPrepIdeas', to: '/MealPrepIdeas' }, 
+           { label: 'NutritionValues', to: '/NutritionalValues' }, 
           ].map((link) => (
             <Button
               key={link.to}
