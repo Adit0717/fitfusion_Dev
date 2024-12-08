@@ -49,6 +49,7 @@ const App = () => {
       {/* Page Content */}
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/index.html" element={<Navigate to="/home" />} />
         <Route path="/home" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
