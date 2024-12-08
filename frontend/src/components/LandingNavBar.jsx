@@ -24,7 +24,7 @@ const Navbar = () => {
         <Typography
           variant="h6"
           component={Link}
-          to="/home"
+          to="/DashBoardLanding"
           sx={{
             textDecoration: 'none',
             color: '#1976d2',
@@ -36,12 +36,12 @@ const Navbar = () => {
         </Typography>
 
         {/* Navigation Links */}
-        <Box sx1={{ display: 'flex', gap: '1.5rem' }}>
+        <Box sx={{ display: 'flex', gap: '1.5rem' }}>
           {[
-            { label: 'MealPlanningTips', to: '/MealPlanningTips' },
-            { label: 'Exercises', to: '/Exercises' },
-            { label: 'FreeRecipeCollection', to: '/FreeRecipeCollection' },
-            { label: 'MealPrepIdeas', to: '/MealPrepIdeas' }, 
+           { label: 'MealPlanningTips', to: '/MealPlanningTips' },
+           { label: 'Exercises', to: '/Exercises' },
+           { label: 'FreeRecipeCollection', to: '/FreeRecipeCollection' },
+           { label: 'MealPrepIdeas', to: '/MealPrepIdeas' }, 
           ].map((link) => (
             <Button
               key={link.to}
@@ -63,6 +63,25 @@ const Navbar = () => {
               {link.label}
             </Button>
           ))}
+        </Box>
+
+        {/* Authentication Buttons */}
+        <Box>
+          <Button
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/signup"
+            sx={{
+              textTransform: 'none',
+              boxShadow: '0px 4px 10px rgba(25, 118, 210, 0.3)',
+              '&:hover': {
+                backgroundColor: '#1565c0',
+              },
+            }}
+          >
+            Log Out
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>
