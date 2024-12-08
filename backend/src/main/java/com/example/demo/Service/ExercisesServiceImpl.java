@@ -22,6 +22,7 @@ public class ExercisesServiceImpl {
     }
 
     public List<exercisesDto> getExercisesBycategpry(String category){
+        System.out.println(category);
         List<exercisesDto> detilas=activityMapper.getExercisesByCategory(category);
         return detilas;
     }
