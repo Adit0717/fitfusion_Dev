@@ -20,6 +20,7 @@ import SearchMealPrepByCalorie from './pages/SearchMealByCalories';
 import SearchByCategory from './pages/SearchBycategory';
 import SearchByExercise from './pages/SearchByExercise';
 import TrainerList from './pages/TrainersList';
+import NutritionalValues from './pages/NutritionalValues';
 
 const App = () => {
   const location = useLocation(); // This should be inside the Router context
@@ -35,6 +36,7 @@ const App = () => {
     '/Exercises',
     '/SearchByCategory',
     '/SearchByExercise',
+    '/NutritionalValues',
   ];
 
   // Check if the current route should render the alternative navbar
@@ -60,6 +62,7 @@ const App = () => {
         <Route path="/article/:id" element={<DetailedArticle />} />
         <Route path="/TrainerList" element={<TrainerList />} />
         <Route path="/MealPlanningTips" element={<MealPlanningTips />} />
+        <Route path="/NutritionalValues" element={<NutritionalValues />} />
         <Route path="/FreeRecipeCollection" element={<FreeRecipeCollection />} />
         <Route path="/MealPrepIdeas" element={<MealPrepIdeas />} />
         <Route path="/SearchMealPrepIdeas" element={<SearchMealPrepIdeas />} />
