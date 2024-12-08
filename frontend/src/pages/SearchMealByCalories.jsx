@@ -6,8 +6,8 @@ const MealPrepIdeas = () => {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [mealType, setMealType] = useState(''); // State for meal type
-  const [calories, setCalories] = useState(''); // State for calories
+  const [mealType, setMealType] = useState('');
+  const [calories, setCalories] = useState('');
 
   const fetchMeals = async (mealType = '', calories = '') => {
     setLoading(true);
@@ -19,7 +19,7 @@ const MealPrepIdeas = () => {
         : 'http://localhost:8080/mealByType';
 
       const response = await axios.get(url);
-      setMeals(response.data['Meal Details'] || []); // Ensure meals is always an array
+      setMeals(response.data['Meal Details'] || []);
       setLoading(false);
     } catch (err) {
       setError('Meal Not found in particular Requirements');
@@ -28,11 +28,11 @@ const MealPrepIdeas = () => {
   };
 
   useEffect(() => {
-    fetchMeals(); // Fetch generic meal list on component mount
+    fetchMeals();
   }, []);
 
   const handleSearch = () => {
-    fetchMeals(mealType, calories); // Fetch meals with specified parameters
+    fetchMeals(mealType, calories);
   };
 
   if (loading) {

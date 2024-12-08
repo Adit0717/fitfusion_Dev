@@ -8,15 +8,13 @@ const TrainerList = () => {
   const [trainers, setTrainers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Hook to navigate to other pages
+  const navigate = useNavigate();
 
-  // Fetch data from the backend
   useEffect(() => {
     const fetchTrainers = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/getTrainerDetails'); // Replace with your backend endpoint
+        const response = await axios.get('http://localhost:8080/getTrainerDetails');
         
-        // Accessing the correct key from backend response
         const trainerData = response.data['TrainerDetails:'];
         if (Array.isArray(trainerData)) {
           setTrainers(trainerData);

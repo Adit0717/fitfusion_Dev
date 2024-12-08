@@ -3,7 +3,7 @@ import { Typography, Box, Divider, CircularProgress, TextField, Button } from '@
 import axios from 'axios';
 
 const MealPrepIdeas = () => {
-  const [meals, setMeals] = useState([]); // Initialize as an empty array
+  const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,7 +18,7 @@ const MealPrepIdeas = () => {
         : 'http://localhost:8080/mealByType';
 
       const response = await axios.get(url);
-      setMeals(response.data['Meal Details'] || []); // Ensure meals is always an array
+      setMeals(response.data['Meal Details'] || []);
       setLoading(false);
     } catch (err) {
       setError('No meal found');

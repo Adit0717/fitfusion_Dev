@@ -8,15 +8,13 @@ const ExerciseList = () => {
   const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Hook to navigate to other pages
+  const navigate = useNavigate();
 
-  // Fetch data from the backend
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/exercisedetails'); // Replace with your backend endpoint
+        const response = await axios.get('http://localhost:8080/exercisedetails');
         
-        // Accessing the correct key from backend response
         const exerciseData = response.data['Exercises:'];
         if (Array.isArray(exerciseData)) {
           setExercises(exerciseData);
@@ -52,7 +50,6 @@ const ExerciseList = () => {
     );
   }
 
-  // Group exercises by category
   const groupedExercises = exercises.reduce((acc, exercise) => {
     const { category } = exercise;
     if (!acc[category]) acc[category] = [];
@@ -60,13 +57,12 @@ const ExerciseList = () => {
     return acc;
   }, {});
 
-  // Redirect functions for buttons
   const handleButton1Click = () => {
-    navigate('/SearchByCategory'); // Replace with your target route
+    navigate('/search-by-category');
   };
 
   const handleButton2Click = () => {
-    navigate('/SearchByExercise'); // Replace with your target route
+    navigate('/search-by-exercise');
   };
 
   return (

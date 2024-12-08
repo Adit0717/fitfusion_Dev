@@ -3,7 +3,7 @@ import { Typography, Box, Divider, CircularProgress, TextField, Button } from '@
 import axios from 'axios';
 
 const CategoryExercises = () => {
-  const [exercises, setExercises] = useState([]); // Initialize as an empty array
+  const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -15,19 +15,18 @@ const CategoryExercises = () => {
     try {
       const url = category
         ? `http://localhost:8080/exercise?exercise=${category}`
-        : 'http://localhost:8080/categoryExercises'; // Adjust URL based on category
+        : 'http://localhost:8080/categoryExercises';
 
       const response = await axios.get(url);
 
-      // Update how exercises are set based on the structure of the response
-      const exercisesData = response.data['Exercises:']; // Get exercises data
+      const exercisesData = response.data['Exercises:'];
 
       if (Array.isArray(exercisesData)) {
-        setExercises(exercisesData); // If multiple exercises are returned, set them
+        setExercises(exercisesData);
       } else if (exercisesData) {
-        setExercises([exercisesData]); // If only one exercise is returned, wrap it in an array
+        setExercises([exercisesData]);
       } else {
-        setExercises([]); // If no exercises are found
+        setExercises([]);
       }
       
       setLoading(false);

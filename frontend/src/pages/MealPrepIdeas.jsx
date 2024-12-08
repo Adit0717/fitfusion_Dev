@@ -7,14 +7,13 @@ const MealPrepIdeas = () => {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize navigation hook
+  const navigate = useNavigate();
 
-  // Fetch data from the backend
   useEffect(() => {
     const fetchMeals = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/mealPlans'); // Replace with your backend endpoint
-        setMeals(response.data['Meal Details']); // Access the "Meal Details" array from the response
+        const response = await axios.get('http://localhost:8080/mealPlans');
+        setMeals(response.data['Meal Details']);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch meal data. Please try again later.');
@@ -55,7 +54,7 @@ const MealPrepIdeas = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => navigate('/SearchMealPrepIdeas')}
+            onClick={() => navigate('/search-mealprep-ideas')}
             sx={{ padding: '8px 16px', fontSize: '0.9rem' }}
           >
             Search Meals By Type
@@ -63,7 +62,7 @@ const MealPrepIdeas = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => navigate('/SearchMealPrepByCalorie')}
+            onClick={() => navigate('/search-mealprep-by-calorie')}
             sx={{ padding: '8px 16px', fontSize: '0.9rem' }}
           >
             Search Meals By Calories
@@ -74,7 +73,7 @@ const MealPrepIdeas = () => {
       {/* Meal list */}
       {meals.map((meal) => (
         <Box
-          key={meal.mealName} // Ensure a unique key for each item
+          key={meal.mealName}
           mb={4}
           sx={{
             backgroundColor: '#f5f5f5',
@@ -82,7 +81,7 @@ const MealPrepIdeas = () => {
             padding: '24px',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
             transition: 'transform 0.2s',
-            '&:hover': { transform: 'scale(1.02)' }, // Add hover effect
+            '&:hover': { transform: 'scale(1.02)' },
           }}
         >
           <Typography variant="h5" sx={{ fontWeight: '600', fontSize: '1.5rem', color: '#333' }}>

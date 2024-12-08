@@ -24,7 +24,7 @@ const Navbar = () => {
         <Typography
           variant="h6"
           component={Link}
-          to="/DashBoardLanding"
+          to="/dashboard"
           sx={{
             textDecoration: 'none',
             color: '#1976d2',
@@ -38,11 +38,11 @@ const Navbar = () => {
         {/* Navigation Links */}
         <Box sx={{ display: 'flex', gap: '1.5rem' }}>
           {[
-           { label: 'MealPlanningTips', to: '/MealPlanningTips' },
-           { label: 'Exercises', to: '/Exercises' },
-           { label: 'FreeRecipeCollection', to: '/FreeRecipeCollection' },
-           { label: 'MealPrepIdeas', to: '/MealPrepIdeas' }, 
-           { label: 'NutritionValues', to: '/NutritionalValues' }, 
+           { label: 'Meal Planning Tips', to: '/meal-planning-tips' },
+           { label: 'Exercises', to: '/exercises' },
+           { label: 'Free Recipe Collection', to: '/free-recipe-collection' },
+           { label: 'Meal Prep Ideas', to: '/meal-prep-ideas' }, 
+           { label: 'Nutrition Values', to: '/nutritional-values' }, 
           ].map((link) => (
             <Button
               key={link.to}
