@@ -24,7 +24,7 @@ describe('MealPrepIdeas Component', () => {
     ];
   
     beforeEach(() => {
-      cy.intercept('GET', 'https://fit-fusion-app-f7f9c3528528.herokuapp.com/mealPlans', (req) => {
+      cy.intercept('GET', 'http://localhost:8080/mealPlans', (req) => {
         req.reply({
           statusCode: 200,
           body: { 'Meal Details': sampleMeals },
@@ -35,7 +35,7 @@ describe('MealPrepIdeas Component', () => {
   
     // Test 2: Handle the error state
     it('displays an error message when API request fails', () => {
-      cy.intercept('GET', 'https://fit-fusion-app-f7f9c3528528.herokuapp.com/mealPlans', { statusCode: 500 }).as('getMealsError');
+      cy.intercept('GET', 'http://localhost:8080/mealPlans', { statusCode: 500 }).as('getMealsError');
       cy.mount(<MealPrepIdeas />);
       cy.wait('@getMealsError');
       cy.contains('Failed to fetch meal data. Please try again later.').should('be.visible'); // Check for the error message

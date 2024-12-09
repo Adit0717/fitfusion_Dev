@@ -22,7 +22,7 @@ import com.example.demo.Service.LoginService;
 import jakarta.validation.Valid;
 
 
-@CrossOrigin(origins = "https://fit-fusion-frontend-b67076fd503c.herokuapp.com")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api")
 public class LoginController {

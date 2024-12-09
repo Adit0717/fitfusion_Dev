@@ -3,7 +3,7 @@ import SearchByCategory from '../../src/pages/SearchBycategory'; // Adjust path 
 
 
 describe('CategoryExercises Component', () => {
-  const API_URL = 'https://fit-fusion-app-f7f9c3528528.herokuapp.com/categoryExercises';
+  const API_URL = 'http://localhost:8080/categoryExercises';
 
   beforeEach(() => {
     cy.intercept('GET', `${API_URL}`, { body: { 'Category Exercises:': [] } }).as('fetchDefault');

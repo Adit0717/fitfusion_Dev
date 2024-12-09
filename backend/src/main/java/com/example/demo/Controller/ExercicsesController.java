@@ -15,7 +15,7 @@ import com.example.demo.Service.ExercisesServiceImpl;
 
 
 @RestController
-@CrossOrigin(origins = "https://fit-fusion-frontend-b67076fd503c.herokuapp.com")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ExercicsesController {
     
     @Autowired

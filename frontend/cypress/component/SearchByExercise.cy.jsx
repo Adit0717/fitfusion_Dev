@@ -4,7 +4,7 @@ import SearchByExercise from '../../src/pages/SearchByExercise'; // Adjust path 
 
 
 describe('CategoryExercises Component', () => {
-    const BASE_URL = 'https://fit-fusion-app-f7f9c3528528.herokuapp.com';
+    const BASE_URL = 'http://localhost:8080';
   
     beforeEach(() => {
         cy.mount(<SearchByExercise />); // Adjust the route if needed

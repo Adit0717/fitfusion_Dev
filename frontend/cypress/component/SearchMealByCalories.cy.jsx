@@ -5,7 +5,7 @@ import SearchMealByCalories from '../../src/pages/SearchMealByCalories'; // Adju
 
 
 describe('MealPrepIdeas Component', () => {
-    const BASE_URL = 'https://fit-fusion-app-f7f9c3528528.herokuapp.com';
+    const BASE_URL = 'http://localhost:8080';
   
     beforeEach(() => {
       cy.mount(<SearchMealByCalories />); // Adjust route if necessary
