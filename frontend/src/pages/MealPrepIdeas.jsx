@@ -7,7 +7,7 @@ const MealPrepIdeas = () => {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
 
   useEffect(() => {
     const fetchMeals = async () => {
