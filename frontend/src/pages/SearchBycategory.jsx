@@ -3,7 +3,7 @@ import { Typography, Box, Divider, CircularProgress, TextField, Button } from '@
 import axiosInstance from '../../axiosConfig';
 
 const CategoryExercises = () => {
-  const [exercises, setExercises] = useState([]); // Initialize as an empty array
+  const [exercises, setExercises] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');

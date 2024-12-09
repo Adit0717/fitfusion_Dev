@@ -15,7 +15,6 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    // Clear previous errors
     setError('');
 
     try {
@@ -29,7 +28,7 @@ const Signup = () => {
       console.log(response.data);
 
       console.log(response);
-      // Assuming the response contains a success message or token
+
       if (response.data['User added '] === 'Successfully')  {
         navigate('/login'); // Redirect to login page after successful signup
       }else{

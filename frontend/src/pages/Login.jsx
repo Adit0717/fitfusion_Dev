@@ -8,26 +8,24 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [response, setMessage] = useState('');
   const [error, setError] = useState('');
-  const [emailError, setEmailError] = useState(''); // State for email validation
+  const [emailError, setEmailError] = useState('');
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Clear previous errors and messages
     setError('');
     setEmailError('');
     setMessage('');
 
-    // Validate email format
     if (!validateEmail(email)) {
       setEmailError('Please enter a valid email address.');
-      return; // Prevent form submission
+      return;
     }
 
     try {
@@ -41,7 +39,7 @@ const Login = () => {
       if (response.data === 'Login Successful') {
         localStorage.setItem('authToken', response.data.token);
         setMessage('Login Successful! Redirecting...');
-        setTimeout(() => navigate('/DashBoardLanding'), 2000);
+        setTimeout(() => navigate('/dashboard'), 2000);
       } else {
         setMessage(response.data);
       }
@@ -152,8 +150,8 @@ const Login = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                error={!!emailError} // Highlight field in case of error
-                helperText={emailError} // Show error message below the field
+                error={!!emailError}
+                helperText={emailError}
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     borderRadius: 2,

@@ -4,7 +4,7 @@ import axios from 'axios';
 import axiosInstance from '../../axiosConfig';
 
 const MealPrepIdeas = () => {
-  const [meals, setMeals] = useState([]); // Initialize as an empty array
+  const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');

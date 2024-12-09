@@ -121,7 +121,7 @@ const FreeRecipeCollection = () => {
               onChange={() => handleChange(recipe.name)} 
               sx={{
                 marginBottom: '10px',
-                borderRadius: '8px', // Rounded corners
+                borderRadius: '8px',
                 boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
               }}
             >

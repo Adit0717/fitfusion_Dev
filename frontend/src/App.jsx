@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import AltNavbar from './components/LandingNavBar'; // Import the alternative Navbar
+import AltNavbar from './components/LandingNavBar';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -23,52 +23,52 @@ import TrainerList from './pages/TrainersList';
 import NutritionalValues from './pages/NutritionalValues';
 
 const App = () => {
-  const location = useLocation(); // This should be inside the Router context
+  const location = useLocation();
   
   const altNavbarRoutes = [
-    '/TrainerList',
-    '/MealPlanningTips',
-    '/FreeRecipeCollection',
-    '/MealPrepIdeas',
-    '/SearchMealPrepIdeas',
-    '/SearchMealPrepByCalorie',
-    '/DashBoardLanding',
-    '/Exercises',
-    '/SearchByCategory',
-    '/SearchByExercise',
-    '/NutritionalValues',
+    '/trainer-list',
+    '/meal-planning-tips',
+    '/free-recipe-collection',
+    '/meal-prep-ideas',
+    '/search-mealprep-ideas',
+    '/search-mealprep-by-calorie',
+    '/dashboard',
+    '/exercises',
+    '/search-by-category',
+    '/search-by-exercise',
+    '/nutritional-values',
   ];
 
-  // Check if the current route should render the alternative navbar
   const showAltNavbar = altNavbarRoutes.includes(location.pathname);
 
   return (
     <div className="App">
       {/* Conditionally render Navbar */}
-      {showAltNavbar ? <AltNavbar /> : (location.pathname !== '/DashBoardLanding' && <Navbar />)}
+      {showAltNavbar ? <AltNavbar /> : (location.pathname !== '/dashboard' && <Navbar />)}
 
       {/* Page Content */}
       <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/index.html" element={<Navigate to="/home" />} />
         <Route path="/home" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/trainers" element={<Trainers />} />
-        <Route path="/Exercises" element={<Exercises />} />
-        <Route path="/SearchByCategory" element={<SearchByCategory />} />
-        <Route path="/SearchByExercise" element={<SearchByExercise />} />
+        <Route path="/exercises" element={<Exercises />} />
+        <Route path="/search-by-category" element={<SearchByCategory />} />
+        <Route path="/search-by-exercise" element={<SearchByExercise />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/article/:id" element={<DetailedArticle />} />
-        <Route path="/TrainerList" element={<TrainerList />} />
-        <Route path="/MealPlanningTips" element={<MealPlanningTips />} />
-        <Route path="/NutritionalValues" element={<NutritionalValues />} />
-        <Route path="/FreeRecipeCollection" element={<FreeRecipeCollection />} />
-        <Route path="/MealPrepIdeas" element={<MealPrepIdeas />} />
-        <Route path="/SearchMealPrepIdeas" element={<SearchMealPrepIdeas />} />
-        <Route path="/SearchMealPrepByCalorie" element={<SearchMealPrepByCalorie />} />
-        <Route path="/articles" element={<DetailedArticle />} />
-        <Route path="/DashBoardLanding" element={<DashBoardLanding />} />
+        <Route path="/trainer-list" element={<TrainerList />} />
+        <Route path="/meal-planning-tips" element={<MealPlanningTips />} />
+        <Route path="/free-recipe-collection" element={<FreeRecipeCollection />} />
+        <Route path="/nutritional-values" element={<NutritionalValues />} />
+        <Route path="/meal-prep-ideas" element={<MealPrepIdeas />} />
+        <Route path="/search-mealprep-ideas" element={<SearchMealPrepIdeas />} />
+        <Route path="/search-mealprep-by-calorie" element={<SearchMealPrepByCalorie />} />
+        <Route path="/dashboard" element={<DashBoardLanding />} />
       </Routes>
     </div>
   );

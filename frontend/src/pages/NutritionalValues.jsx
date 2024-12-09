@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Typography, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Select, MenuItem, Divider } from '@mui/material';
 
 const NutritionalValues = () => {
-  const [unit, setUnit] = useState('g'); // State to manage unit selection
+  const [unit, setUnit] = useState('g');
 
   const categories = [
     {
@@ -68,7 +68,7 @@ const NutritionalValues = () => {
   ];
 
   const convertToOunces = (grams) => {
-    return (grams / 28.3495).toFixed(2); // Convert grams to ounces
+    return (grams / 28.3495).toFixed(2);
   };
 
   return (
@@ -85,15 +85,15 @@ const NutritionalValues = () => {
   onChange={(e) => setUnit(e.target.value)}
   sx={{
     marginBottom: '20px',
-    borderRadius: '8px', // Add rounded corners to the dropdown
+    borderRadius: '8px',
     '& .MuiSelect-select': {
-      padding: '8px 12px', // Adjust padding inside the Select
+      padding: '8px 12px',
     },
     '& .MuiOutlinedInput-notchedOutline': {
-      borderRadius: '8px', // Make the outline rounded
+      borderRadius: '8px',
     },
     '& .MuiMenuItem-root': {
-      padding: '4px 12px', // Smaller padding for menu items
+      padding: '4px 12px',
     },
   }}
 >

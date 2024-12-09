@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Grid, Avatar, Button, Paper } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   return (
@@ -200,10 +201,11 @@ const AboutUs = () => {
           View GitHub Repo
         </Button>
         <Button
+          component={Link}
+          to="/contact"
           variant="contained"
           color="inherit"
-          size="large"
-          href="/contact"
+          size="large"          
           sx={{
             backgroundColor: 'white',
             color: 'primary.main',
