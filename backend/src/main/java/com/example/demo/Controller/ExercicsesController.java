@@ -33,6 +33,7 @@ public class ExercicsesController {
     @GetMapping("/categoryExercises")
     public ResponseEntity<?> getExercisesByCategory(String category){
         Map<String, List<exercisesDto>> response = new HashMap<>();
+        System.out.println(category);
         List<exercisesDto> users=exercisesService.getExercisesBycategpry(category);
         response.put("Category Exercises:",users);
         return ResponseEntity.status(200).body(response);
