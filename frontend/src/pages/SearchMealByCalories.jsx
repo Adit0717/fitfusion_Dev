@@ -7,8 +7,8 @@ const MealPrepIdeas = () => {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [mealType, setMealType] = useState(''); // State for meal type
-  const [calories, setCalories] = useState(''); // State for calories
+  const [mealType, setMealType] = useState('');
+  const [calories, setCalories] = useState('');
 
   const fetchMeals = async (mealType = '', calories = '') => {
     setLoading(true);
@@ -29,11 +29,11 @@ const MealPrepIdeas = () => {
   };
 
   useEffect(() => {
-    fetchMeals(); // Fetch generic meal list on component mount
+    fetchMeals();
   }, []);
 
   const handleSearch = () => {
-    fetchMeals(mealType, calories); // Fetch meals with specified parameters
+    fetchMeals(mealType, calories);
   };
 
   if (loading) {
