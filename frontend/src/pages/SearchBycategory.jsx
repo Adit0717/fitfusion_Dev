@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Divider, CircularProgress, TextField, Button } from '@mui/material';
-import axiosInstance from '../../axiosConfig';
+import axiosInstance from '../axiosConfig';
 
 const CategoryExercises = () => {
   const [exercises, setExercises] = useState([]);
