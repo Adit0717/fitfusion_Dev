@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Divider, CircularProgress, TextField, Button } from '@mui/material';
-import axios from 'axios';
-import axiosInstance from '../../axiosConfig';
+import axiosInstance from '../axiosConfig'; 
 
 const MealPrepIdeas = () => {
   const [meals, setMeals] = useState([]);
