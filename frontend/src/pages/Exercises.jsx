@@ -3,7 +3,7 @@ import { Typography, Box, Divider, CircularProgress, Accordion, AccordionSummary
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../axiosConfig'; 
+import axiosInstance from '../axiosConfig'; 
 
 const ExerciseList = () => {
   const [exercises, setExercises] = useState([]);

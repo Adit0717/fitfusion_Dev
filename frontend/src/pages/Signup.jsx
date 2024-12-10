@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Container, Grid, TextField, Typography, Divider } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import axiosInstance from '../../axiosConfig';
+import axiosInstance from '../axiosConfig'; 
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
